@@ -51,7 +51,8 @@ class TextVisualizer(Visualizer):
                         s += self.CTLABELS[c]
                         last_char = c
                     else:
-                        s += str(chr(self.CTLABELS[c]))
+                        # s += str(chr(self.CTLABELS[c]))
+                        s += self.CTLABELS[c]
                         last_char = c
             else:
                 last_char = '###'
