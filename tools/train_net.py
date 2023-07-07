@@ -46,6 +46,13 @@ from adet.checkpoint import AdetCheckpointer
 from adet.evaluation import TextEvaluator
 from adet.modeling import swin, vitae_v2
 
+import os
+import random
+import shutil
+import pickle
+import numpy as np
+import cv2
+from PIL import Image, ImageDraw, ImageFont
 
 class Trainer(DefaultTrainer):
     """
@@ -69,6 +76,14 @@ class Trainer(DefaultTrainer):
                     scheduler=self.scheduler,
                 )
                 ret[i] = hooks.PeriodicCheckpointer(self.checkpointer, self.cfg.SOLVER.CHECKPOINT_PERIOD)
+        with open('dict', 'rb') as f:
+            self.dict = pickle.load(f)
+        self.font = ImageFont.truetype('font.ttc', 20)
+        try:
+            shutil.rmtree('bv')
+        except:
+            pass
+        os.mkdir('bv')
         return ret
     
     def resume_or_load(self, resume=True):
@@ -253,6 +268,59 @@ class Trainer(DefaultTrainer):
             optimizer = maybe_add_gradient_clipping(cfg, optimizer)
         return optimizer
 
+    def batch_visualization(self, cnt = 10):
+        dataset_dicts = self.data_loader
+        for dd in dataset_dicts:
+            for d in dd:
+                img = d["image"].permute(1,2,0).numpy()
+                gt_img = self.draw_gt(img, d)
+                cv2.imwrite("bv/" + str(random.randrange(100_000, 999_999)) + ".jpg", gt_img)
+                cnt -= 1
+                if cnt <= 0:
+                    return
+
+    def draw_gt(self, img, d):
+        '''
+        gt_boxes    4
+        gt_classes
+        beziers     8
+        polyline    200
+        boundary    400
+        texts       25
+        '''
+        img = Image.fromarray(img)
+        img0, img1, img2, img3 = img.copy(), img.copy(), img.copy(), img.copy()
+        draw0, draw1, draw2, draw3 = ImageDraw.Draw(img0), ImageDraw.Draw(img1), ImageDraw.Draw(img2), ImageDraw.Draw(img3)
+
+        for gt_boxes, beziers, polyline, boundary, texts in zip(d['instances'].gt_boxes, d['instances'].beziers, d['instances'].polyline, d['instances'].boundary, d['instances'].texts):
+            a,b,c,d = map(int, gt_boxes)
+            draw0.rectangle((a,b,c,d), outline=(0,255,0), width=3)
+            s = ''
+            for text in texts:
+                try:
+                    s += self.dict[text]
+                except:
+                    break
+            draw0.text((int(a), int(d)), s, font=self.font, fill=(255,0,0,0))
+            self.draw_poly(draw1, beziers, (255,0,0))
+            self.draw_poly(draw2, polyline, (0,255,0))
+            self.draw_poly(draw3, boundary, (0,0,255))
+        w, h = img.size
+        gt_img = Image.new("RGB", (2*w, 2*h))
+        gt_img.paste(img0, (0, 0))
+        gt_img.paste(img1, (w, 0))
+        gt_img.paste(img2, (0, h))
+        gt_img.paste(img3, (w, h))
+        return cv2.cvtColor(np.array(gt_img), cv2.COLOR_RGB2BGR)
+
+    def draw_poly(self, dr, p, fill):
+        for i in range(len(p) // 2):
+            a, b = map(int, [p[2*i], p[2*i + 1]])
+            try:
+                c, d = map(int, [p[2*(i+1)], p[2*(i+1) + 1]])
+            except:
+                c, d = map(int, [p[0], p[1]])
+            dr.line([(a,b), (c,d)], fill=fill, width = 0)
 
 def setup(args):
     """
@@ -295,6 +363,7 @@ def main(args):
         trainer.register_hooks(
             [hooks.EvalHook(0, lambda: trainer.test_with_TTA(cfg, trainer.model))]
         )
+    trainer.batch_visualization()
     return trainer.train()
 
 
