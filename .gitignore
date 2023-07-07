@@ -1,1 +1,11 @@
 __pycache__
+dict
+*.ttc
+
+AdelaiDet.egg-info
+bv
+dict
+output
+weights
+
+adet/*.so
