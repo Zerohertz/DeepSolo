@@ -3,6 +3,7 @@ dict
 *.ttc
 
 AdelaiDet.egg-info
+build
 bv
 dict
 output
