@@ -140,7 +140,7 @@ class TextVisualizer(Visualizer):
         
         x, y = position
         if draw_chinese:
-            font_path = "./simsun.ttc"
+            font_path = "./font.ttc"
             prop = mfm.FontProperties(fname=font_path)
             self.output.ax.text(
                 x,
