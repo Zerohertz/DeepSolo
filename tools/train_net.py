@@ -83,7 +83,8 @@ class Trainer(DefaultTrainer):
             shutil.rmtree('bv')
         except:
             pass
-        os.mkdir('bv')
+        if not os.path.isdir('bv'):
+            os.mkdir('bv')
         return ret
     
     def resume_or_load(self, resume=True):
@@ -363,7 +364,7 @@ def main(args):
         trainer.register_hooks(
             [hooks.EvalHook(0, lambda: trainer.test_with_TTA(cfg, trainer.model))]
         )
-    trainer.batch_visualization()
+    # trainer.batch_visualization()
     return trainer.train()
 
 
