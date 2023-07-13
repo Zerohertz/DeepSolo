@@ -83,8 +83,10 @@ class Trainer(DefaultTrainer):
             shutil.rmtree('bv')
         except:
             pass
-        if not os.path.isdir('bv'):
+        try:
             os.mkdir('bv')
+        except:
+            pass
         return ret
     
     def resume_or_load(self, resume=True):
