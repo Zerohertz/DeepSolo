@@ -214,6 +214,7 @@ class DETECTION_TRANSFORMER(nn.Module):
             reference = inverse_sigmoid_offset(reference, offset=self.sigmoid_offset)
             outputs_class = self.ctrl_point_class[lvl](hs[lvl])
             outputs_text = self.ctrl_point_text[lvl](hs[lvl])  # bs, n_proposal, n_pts, voc_size
+            # NOTE: torch.Size([bs, NUM_QUERIES, NUM_POINTS, VOC_SIZE+1])
             tmp = self.ctrl_point_coord[lvl](hs[lvl])
             if self.boundary_head_on:
                 tmp_bd = self.boundary_offset[lvl](hs[lvl])
@@ -235,7 +236,7 @@ class DETECTION_TRANSFORMER(nn.Module):
             outputs_coords.append(outputs_coord)
 
         outputs_class = torch.stack(outputs_classes)
-        outputs_text = torch.stack(outputs_texts)
+        outputs_text = torch.stack(outputs_texts) # NOTE: torch.Size([DEC_LAYERS, bs, NUM_QUERIES, NUM_POINTS, VOC_SIZE+1])
         outputs_coord = torch.stack(outputs_coords)
         if self.boundary_head_on:
             outputs_bd_coord = torch.stack(outputs_bd_coords)
