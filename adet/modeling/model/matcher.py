@@ -40,23 +40,42 @@ class CtrlPointHungarianMatcher(nn.Module):
             target_lengths = torch.split(target_lengths, sizes)
             texts_cost_list = []
             for out_texts_batch, targe_texts_batch, target_len_batch in zip(out_texts, target_texts, target_lengths):
-                out_texts_batch_temp = out_texts_batch.repeat(targe_texts_batch.shape[0], 1, 1).permute(1, 0, 2)
-                input_len = torch.full((out_texts_batch_temp.size(1),), out_texts_batch_temp.size(0), dtype=torch.long)
-                targe_texts_batch_temp = torch.cat([
-                    t[:target_len_batch[t_idx]].repeat(num_queries) for t_idx, t in enumerate(targe_texts_batch)
-                ])
-                target_len_batch_temp = target_len_batch.reshape((-1, 1)).repeat(1, num_queries).reshape(-1)
-                text_cost = F.ctc_loss(
-                    out_texts_batch_temp,
-                    targe_texts_batch_temp,
-                    input_len,
-                    target_len_batch_temp,
-                    blank=voc,
-                    zero_infinity=True,
-                    reduction='none'
-                )
-                text_cost.div_(target_len_batch_temp)
-                text_cost_cpu = text_cost.reshape((-1, num_queries)).transpose(1, 0).cpu()
+                if False:
+                    out_texts_batch_temp = out_texts_batch.repeat(targe_texts_batch.shape[0], 1, 1).permute(1, 0, 2)
+                    input_len = torch.full((out_texts_batch_temp.size(1),), out_texts_batch_temp.size(0), dtype=torch.long)
+                    targe_texts_batch_temp = torch.cat([
+                        t[:target_len_batch[t_idx]].repeat(num_queries) for t_idx, t in enumerate(targe_texts_batch)
+                    ])
+                    target_len_batch_temp = target_len_batch.reshape((-1, 1)).repeat(1, num_queries).reshape(-1)
+                    text_cost = F.ctc_loss(
+                        out_texts_batch_temp,
+                        targe_texts_batch_temp,
+                        input_len,
+                        target_len_batch_temp,
+                        blank=voc,
+                        zero_infinity=True,
+                        reduction='none'
+                    )
+                    text_cost.div_(target_len_batch_temp)
+                    text_cost_cpu = text_cost.reshape((-1, num_queries)).transpose(1, 0).cpu()
+                else:
+                    out_texts_batch_temp = out_texts_batch.permute(1, 0, 2)
+                    input_len = torch.full((out_texts_batch_temp.size(1),), out_texts_batch_temp.size(0), dtype=torch.long)
+                    text_cost_cpu = torch.tensor([])
+                    for i in range(len(targe_texts_batch)):
+                        targe_texts_batch_temp = targe_texts_batch[i].repeat(num_queries, 1)
+                        target_len_batch_temp = target_len_batch[i].reshape((-1, 1)).repeat(1, num_queries).reshape(-1)
+                        text_cost = F.ctc_loss(
+                            out_texts_batch_temp,
+                            targe_texts_batch_temp,
+                            input_len,
+                            target_len_batch_temp,
+                            blank=voc,
+                            zero_infinity=True,
+                            reduction='none'
+                        )
+                        text_cost.div_(target_len_batch_temp)
+                        text_cost_cpu = torch.cat((text_cost_cpu, text_cost.reshape((-1, num_queries)).transpose(1, 0).cpu().view(num_queries,1)),1)
                 texts_cost_list.append(text_cost_cpu)
 
             # ctrl points of the text center line: (bz, n_q, n_pts, 2) --> (bz * n_q, n_pts * 2)
