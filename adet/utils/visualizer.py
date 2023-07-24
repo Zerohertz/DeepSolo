@@ -32,9 +32,9 @@ class TextVisualizer(Visualizer):
         recs = predictions.recs
         bd_pts = np.asarray(predictions.bd)
 
-        self.overlay_instances(ctrl_pnts, scores, recs, bd_pts)
+        txt = self.overlay_instances(ctrl_pnts, scores, recs, bd_pts)
 
-        return self.output
+        return self.output, txt
 
     def _process_ctrl_pnt(self, pnt):
         points = pnt.reshape(-1, 2)
@@ -62,6 +62,7 @@ class TextVisualizer(Visualizer):
         colors = [(0,0.5,0),(0,0.75,0),(1,0,1),(0.75,0,0.75),(0.5,0,0.5),(1,0,0),(0.75,0,0),(0.5,0,0),
         (0,0,1),(0,0,0.75),(0.75,0.25,0.25),(0.75,0.5,0.5),(0,0.75,0.75),(0,0.5,0.5),(0,0.3,0.75)]
 
+        txt = []
         for ctrl_pnt, score, rec, bd in zip(ctrl_pnts, scores, recs, bd_pnts):
             color = random.choice(colors)
 
@@ -106,6 +107,14 @@ class TextVisualizer(Visualizer):
                         font_size=font_size,
                         draw_chinese=False if self.voc_size == 37 or self.voc_size == 96 else True
                     )
+            txt.append(
+                [bd[:,0].min().astype(np.int32),
+                 bd[:,1].min().astype(np.int32),
+                 bd[:,0].max().astype(np.int32),
+                 bd[:,1].max().astype(np.int32),
+                 text]
+            )
+        return txt
 
     def draw_text(
         self,

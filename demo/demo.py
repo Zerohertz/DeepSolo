@@ -82,9 +82,16 @@ if __name__ == "__main__":
             assert args.input, "The input path(s) was not found"
         for path in tqdm.tqdm(args.input, disable=not args.output):
             # use PIL, to be consistent with evaluation
-            img = read_image(path, format="BGR")
+            try:
+                img = read_image(path, format="BGR")
+            except Exception as e:
+                print("="*30)
+                print(e)
+                print("PATH:", path)
+                print("="*30)
+                continue
             start_time = time.time()
-            predictions, visualized_output = demo.run_on_image(img)
+            predictions, visualized_output, txt = demo.run_on_image(img)
             logger.info(
                 "{}: detected {} instances in {:.2f}s".format(
                     path, len(predictions["instances"]), time.time() - start_time
@@ -99,6 +106,10 @@ if __name__ == "__main__":
                     assert len(args.input) == 1, "Please specify a directory with args.output"
                     out_filename = args.output
                 visualized_output.save(out_filename)
+                if txt:
+                    with open(".".join(out_filename.split(".")[:-1]) + ".txt", "w") as f:
+                        for t in txt:
+                            f.writelines("\t".join(list(map(str, t)))+"\n")
             else:
                 cv2.imshow(WINDOW_NAME, visualized_output.get_image()[:, :, ::-1])
                 if cv2.waitKey(0) == 27:
