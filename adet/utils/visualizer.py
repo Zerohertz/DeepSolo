@@ -107,11 +107,12 @@ class TextVisualizer(Visualizer):
                         font_size=font_size,
                         draw_chinese=False if self.voc_size == 37 or self.voc_size == 96 else True
                     )
+            x1, y1, x2, y2 = (bd[:,0].min().astype(np.int32),
+            bd[:,1].min().astype(np.int32),
+            bd[:,0].max().astype(np.int32),
+            bd[:,1].max().astype(np.int32))
             txt.append(
-                [bd[:,0].min().astype(np.int32),
-                 bd[:,1].min().astype(np.int32),
-                 bd[:,0].max().astype(np.int32),
-                 bd[:,1].max().astype(np.int32),
+                [x1, y1, x1, y2, x2, y2, x2, y1,
                  text]
             )
         return txt
