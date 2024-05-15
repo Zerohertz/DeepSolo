@@ -1,0 +1,502 @@
+repo_name: Zerohertz/DeepSolo
+report_id: 75603417760c9d06944a4c2223cd2d39
+version: 0.1
+repo_type: Public
+timestamp: '2024-05-15T13:00:47+00:00'
+requested_by: Zerohertz
+provider: github
+branch: main
+detected_tools_count: 22
+tools:
+- name: C++
+  description: Has imperative, object-oriented and generic programming features, while
+    also providing the facilities for low level memory manipulation
+  website_url: http://www.cplusplus.com/
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Languages
+  image_url: https://img.stackshare.io/service/1049/cplusplus.png
+  detection_source_url: https://github.com/Zerohertz/DeepSolo
+  detection_source: Repo Metadata
+- name: Python
+  description: A clear and powerful object-oriented programming language, comparable
+    to Perl, Ruby, Scheme, or Java.
+  website_url: https://www.python.org
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Languages
+  image_url: https://img.stackshare.io/service/993/pUBY5pVj.png
+  detection_source_url: https://github.com/Zerohertz/DeepSolo
+  detection_source: Repo Metadata
+- name: Matplotlib
+  description: A plotting library for the Python programming language
+  website_url: http://matplotlib.org
+  open_source: false
+  hosted_saas: false
+  category: Libraries
+  sub_category: Charting Libraries
+  image_url: https://img.stackshare.io/service/2993/2DZC4KaA_400x400.jpg
+  detection_source_url: https://github.com/Zerohertz/DeepSolo/blob/main/requirements.txt
+  detection_source: requirements.txt
+  last_updated_by: ymy-k
+  last_updated_on: 2023-03-07 14:01:11.000000000 Z
+- name: Git
+  description: Fast, scalable, distributed revision control system
+  website_url: http://git-scm.com/
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Version Control System
+  image_url: https://img.stackshare.io/service/1046/git.png
+  detection_source_url: https://github.com/Zerohertz/DeepSolo
+  detection_source: Repo Metadata
+- name: PyPI
+  description: A repository of software for the Python programming language
+  website_url: https://pypi.org/
+  open_source: false
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Hosted Package Repository
+  image_url: https://img.stackshare.io/service/12572/-RIWgodF_400x400.jpg
+  detection_source_url: https://github.com/Zerohertz/DeepSolo/blob/main/setup.py
+  detection_source: setup.py
+  last_updated_by: ymy-k
+  last_updated_on: 2023-03-06 17:13:57.000000000 Z
+- name: OpenCV
+  description: Open Source Computer Vision Library
+  website_url: http://opencv.org/
+  open_source: true
+  hosted_saas: false
+  category: Assets and Media
+  sub_category: Image Processing and Management
+  image_url: https://img.stackshare.io/service/1293/opencv-logo-64x64.png
+  detection_source_url: https://github.com/Zerohertz/DeepSolo/blob/main/requirements.txt
+  detection_source: requirements.txt
+  last_updated_by: ymy-k
+  last_updated_on: 2023-03-07 14:01:11.000000000 Z
+- name: scikit-image
+  description: Image processing in Python
+  website_url: http://scikit-image.org/
+  open_source: true
+  hosted_saas: false
+  category: Assets and Media
+  sub_category: Image Processing and Management
+  image_url: https://img.stackshare.io/service/1294/897180.png
+  detection_source_url: https://github.com/Zerohertz/DeepSolo/blob/main/requirements.txt
+  detection_source: requirements.txt
+  last_updated_by: ymy-k
+  last_updated_on: 2023-03-07 14:01:11.000000000 Z
+- name: CUDA
+  description: It provides everything you need to develop GPU-accelerated applications
+  website_url: http://www.nvidia.com/object/cuda_home_new.html
+  open_source: false
+  hosted_saas: false
+  category: Application Utilities
+  sub_category: Machine Learning Tools
+  image_url: https://img.stackshare.io/service/2836/LUOWehvo_400x400.jpeg
+  detection_source_url: https://github.com/Zerohertz/DeepSolo
+  detection_source: Repo Metadata
+- name: NumPy
+  description: Fundamental package for scientific computing with Python
+  website_url: http://www.numpy.org/
+  version: 1.20.0
+  license: BSD-3-Clause
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: Data Science Tools
+  image_url: https://img.stackshare.io/service/2179/default_332f874a2edb2686f578aa6389313efcea1eec41.png
+  detection_source_url: https://github.com/Zerohertz/DeepSolo/blob/main/requirements.txt
+  detection_source: requirements.txt
+  last_updated_by: ymy-k
+  last_updated_on: 2023-03-07 14:01:11.000000000 Z
+- name: SciPy
+  description: Scientific Computing Tools for Python
+  website_url: http://www.scipy.org
+  version: 1.5.2
+  license: BSD-3-Clause
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: Data Science Tools
+  image_url: https://img.stackshare.io/service/3303/scipyshiny_small.png
+  detection_source_url: https://github.com/Zerohertz/DeepSolo/blob/main/requirements.txt
+  detection_source: requirements.txt
+  last_updated_by: ymy-k
+  last_updated_on: 2023-03-07 14:01:11.000000000 Z
+- name: shapely
+  website_url: https://pypi.org/project/Shapely/
+  open_source: false
+  hosted_saas: false
+  image_url: https://img.stackshare.io/service/12519/empty-logo-square.png
+  detection_source_url: https://github.com/Zerohertz/DeepSolo/blob/main/setup.py
+  detection_source: setup.py
+  last_updated_by: ymy-k
+  last_updated_on: 2023-03-06 17:13:57.000000000 Z
+- name: Pillow
+  description: Python Imaging Library
+  package_url: https://pypi.org/project/Pillow
+  version: '6.0'
+  license: HPND
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/19844/default_accee5d2b8ed75c2245f13504daf75b1cbc8cc9f.png
+  detection_source_url: https://github.com/Zerohertz/DeepSolo/blob/main/setup.py
+  detection_source: setup.py
+  last_updated_by: ymy-k
+  last_updated_on: 2023-03-06 17:13:57.000000000 Z
+  vulnerabilities:
+  - name: Out-of-bounds Read
+    cve_id: CVE-2021-25288
+    cve_url: https://github.com/advisories/GHSA-rwv7-3v45-hg29
+    detected_date: Aug 22
+    severity: critical
+    first_patched: 8.2.0
+  - name: Out-of-bounds Read in Pillow
+    cve_id: CVE-2021-25287
+    cve_url: https://github.com/advisories/GHSA-77gc-v2xv-rvvh
+    detected_date: Aug 22
+    severity: critical
+    first_patched: 8.2.0
+  - name: Arbitrary expression injection in Pillow
+    cve_id: CVE-2022-22817
+    cve_url: https://github.com/advisories/GHSA-8vj2-vxx3-667w
+    detected_date: Jan 18
+    severity: critical
+    first_patched: 9.0.1
+  - name: Path traversal in Pillow
+    cve_id: CVE-2022-24303
+    cve_url: https://github.com/advisories/GHSA-9j59-75qj-795w
+    detected_date: Mar 12
+    severity: critical
+    first_patched: 9.0.1
+  - name: Uncontrolled Resource Consumption in Pillow
+    cve_id: CVE-2021-28677
+    cve_url: https://github.com/advisories/GHSA-q5hq-fp76-qmrc
+    detected_date: Aug 22
+    severity: high
+    first_patched: 8.2.0
+  - name: Pillow Out-of-bounds Read
+    cve_id: CVE-2020-35653
+    cve_url: https://github.com/advisories/GHSA-f5g8-5qq7-938w
+    detected_date: Aug 22
+    severity: high
+    first_patched: 8.1.0
+  - name: PCX P mode buffer overflow in Pillow
+    cve_id: CVE-2020-5312
+    cve_url: https://github.com/advisories/GHSA-p49h-hjvm-jg3h
+    detected_date: Jan 18
+    severity: high
+    first_patched: 6.2.2
+  - name: Integer overflow in Pillow
+    cve_id: CVE-2020-5310
+    cve_url: https://github.com/advisories/GHSA-vcqg-3p29-xw73
+    detected_date: Jan 18
+    severity: high
+    first_patched: 6.2.2
+  - name: Pillow Denial of Service by Uncontrolled Resource Consumption
+    cve_id: CVE-2021-27921
+    cve_url: https://github.com/advisories/GHSA-f4w8-cv6p-x6r5
+    detected_date: Aug 22
+    severity: high
+    first_patched: 8.1.1
+  - name: Out of bounds read in Pillow
+    cve_id: CVE-2021-25293
+    cve_url: https://github.com/advisories/GHSA-p43w-g3c5-g5mq
+    detected_date: Aug 22
+    severity: high
+    first_patched: 8.1.1
+  - name: Out-of-bounds Write in Pillow
+    cve_id: CVE-2021-25290
+    cve_url: https://github.com/advisories/GHSA-8xjq-8fcg-g5hw
+    detected_date: Aug 22
+    severity: high
+    first_patched: 8.1.1
+  - name: Out of bounds read in Pillow
+    cve_id: CVE-2021-25291
+    cve_url: https://github.com/advisories/GHSA-mvg9-xffr-p774
+    detected_date: Aug 22
+    severity: high
+    first_patched: 8.2.0
+  - name: Buffer overflow in Pillow
+    cve_id: CVE-2020-10379
+    cve_url: https://github.com/advisories/GHSA-8843-m7mw-mxqm
+    detected_date: Aug 22
+    severity: high
+    first_patched: 7.1.0
+  - name: Out-of-bounds read in Pillow
+    cve_id: CVE-2020-11538
+    cve_url: https://github.com/advisories/GHSA-43fq-w8qq-v88h
+    detected_date: Aug 22
+    severity: high
+    first_patched: 7.1.0
+  - name: Potential infinite loop in Pillow
+    cve_id: CVE-2021-28676
+    cve_url: https://github.com/advisories/GHSA-7r7m-5h27-29hp
+    detected_date: Aug 22
+    severity: high
+    first_patched: 8.2.0
+  - name: 'libwebp: OOB write in BuildHuffmanTable'
+    cve_id: CVE-2023-4863
+    cve_url: https://github.com/advisories/GHSA-j7hp-h8jx-5ppr
+    detected_date: Oct 4
+    severity: high
+    first_patched: 10.0.1
+  - name: Pillow Denial of Service by Uncontrolled Resource Consumption
+    cve_id: CVE-2021-27923
+    cve_url: https://github.com/advisories/GHSA-95q3-8gr9-gm8w
+    detected_date: Aug 22
+    severity: high
+    first_patched: 8.1.1
+  - name: Uncontrolled Resource Consumption in Pillow
+    cve_id: CVE-2019-19911
+    cve_url: https://github.com/advisories/GHSA-5gm3-px64-rw72
+    detected_date: Aug 22
+    severity: high
+    first_patched: 6.2.2
+  - name: Out-of-bounds Read in Pillow
+    cve_id: CVE-2020-5313
+    cve_url: https://github.com/advisories/GHSA-hj69-c76v-86wr
+    detected_date: Aug 22
+    severity: high
+    first_patched: 6.2.2
+  - name: Pillow Out-of-bounds Write
+    cve_id: CVE-2020-35654
+    cve_url: https://github.com/advisories/GHSA-vqcj-wrf2-7v73
+    detected_date: Aug 22
+    severity: high
+    first_patched: 8.1.0
+  - name: Pillow Uncontrolled Resource Consumption
+    cve_id: CVE-2021-27922
+    cve_url: https://github.com/advisories/GHSA-3wvg-mj6g-m9cv
+    detected_date: Aug 22
+    severity: high
+    first_patched: 8.1.1
+  - name: Arbitrary Code Execution in Pillow
+    cve_id: CVE-2023-50447
+    cve_url: https://github.com/advisories/GHSA-3f63-hfp8-52jq
+    detected_date: Jan 23
+    severity: high
+    first_patched: 10.2.0
+  - name: Pillow Denial of service
+    cve_id: CVE-2021-28675
+    cve_url: https://github.com/advisories/GHSA-g6rj-rv7j-xwp4
+    detected_date: Aug 22
+    severity: moderate
+    first_patched: 8.2.0
+  - name: Insufficient Verification of Data Authenticity in Pillow
+    cve_id: CVE-2021-28678
+    cve_url: https://github.com/advisories/GHSA-hjfx-8p6c-g7gx
+    detected_date: Aug 22
+    severity: moderate
+    first_patched: 8.2.0
+  - name: Pillow Out-of-bounds Read
+    cve_id: CVE-2020-35655
+    cve_url: https://github.com/advisories/GHSA-hf64-x4gq-p99h
+    detected_date: Aug 22
+    severity: moderate
+    first_patched: 8.1.0
+  - name: Out-of-bounds reads in Pillow
+    cve_id: CVE-2020-10177
+    cve_url: https://github.com/advisories/GHSA-cqhg-xjhh-p8hf
+    detected_date: Aug 22
+    severity: moderate
+    first_patched: 7.1.0
+  - name: Improper Initialization in Pillow
+    cve_id: CVE-2022-22815
+    cve_url: https://github.com/advisories/GHSA-pw3c-h7wp-cvhx
+    detected_date: Jan 18
+    severity: moderate
+    first_patched: 9.0.0
+  - name: Regular Expression Denial of Service (ReDoS) in Pillow
+    cve_id: CVE-2021-25292
+    cve_url: https://github.com/advisories/GHSA-9hx2-hgq2-2g4f
+    detected_date: Aug 22
+    severity: moderate
+    first_patched: 8.1.1
+  - name: Out-of-bounds Read in Pillow
+    cve_id: CVE-2022-22816
+    cve_url: https://github.com/advisories/GHSA-xrcv-f9gm-v42c
+    detected_date: Jan 18
+    severity: moderate
+    first_patched: 9.0.0
+  - name: Out-of-bounds reads in Pillow
+    cve_id: CVE-2020-10994
+    cve_url: https://github.com/advisories/GHSA-vj42-xq3r-hr3r
+    detected_date: Aug 22
+    severity: moderate
+    first_patched: 7.1.0
+  - name: Out-of-bounds read in Pillow
+    cve_id: CVE-2020-10378
+    cve_url: https://github.com/advisories/GHSA-3xv8-3j54-hgrp
+    detected_date: Jan 18
+    severity: moderate
+    first_patched: 7.1.0
+  - name: Infinite loop in Pillow
+    cve_id:
+    cve_url: https://github.com/advisories/GHSA-4fx9-vc88-q2xc
+    detected_date: Mar 12
+    severity: low
+    first_patched: 9.0.0
+- name: scikit-learn
+  description: A set of python modules for machine learning and data mining
+  package_url: https://pypi.org/project/scikit-learn
+  version: 0.23.2
+  license: BSD-3-Clause
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/19898/default_4343f8bba4f6051641ffca8b4fbe9b099402c84d.png
+  detection_source_url: https://github.com/Zerohertz/DeepSolo/blob/main/requirements.txt
+  detection_source: requirements.txt
+  last_updated_by: ymy-k
+  last_updated_on: 2023-03-07 14:01:11.000000000 Z
+  vulnerabilities:
+  - name: scikit-learn Denial of Service
+    cve_id: CVE-2020-28975
+    cve_url: https://github.com/advisories/GHSA-jxfp-4rvq-9h9m
+    detected_date: Feb 3
+    severity: high
+    first_patched: 1.0.1
+- name: setuptools
+  description: Easily download
+  package_url: https://pypi.org/project/setuptools
+  version: 59.5.0
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/19831/default_65d1c12a133e1aa67ae96a1221c9c122ddf86c5f.png
+  detection_source_url: https://github.com/Zerohertz/DeepSolo/blob/main/requirements.txt
+  detection_source: requirements.txt
+  last_updated_by: ymy-k
+  last_updated_on: 2023-03-08 11:55:37.000000000 Z
+  vulnerabilities:
+  - name: pypa/setuptools vulnerable to Regular Expression Denial of Service (ReDoS)
+    cve_id: CVE-2022-40897
+    cve_url: https://github.com/advisories/GHSA-r9hx-vwmv-q579
+    detected_date: Dec 28
+    severity: high
+    first_patched: 65.5.1
+- name: tqdm
+  description: Fast, Extensible Progress Meter
+  package_url: https://pypi.org/project/tqdm
+  version: 4.53.0
+  license: MPL-2.0,MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/19846/default_accee5d2b8ed75c2245f13504daf75b1cbc8cc9f.png
+  detection_source_url: https://github.com/Zerohertz/DeepSolo/blob/main/requirements.txt
+  detection_source: requirements.txt
+  last_updated_by: ymy-k
+  last_updated_on: 2023-03-07 14:01:11.000000000 Z
+  vulnerabilities:
+  - name: tqdm CLI arguments injection attack
+    cve_id: CVE-2024-34062
+    cve_url: https://github.com/advisories/GHSA-g7vv-2v7x-gj9p
+    detected_date: May 4
+    severity: low
+    first_patched: 4.66.3
+- name: cloudpickle
+  description: Extended pickling support for Python objects
+  package_url: https://pypi.org/project/cloudpickle
+  license: BSD-1-Clause
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/20066/default_bb49fb0188726b8922387d8bb6e9b2cd0c3c0ea9.png
+  detection_source_url: https://github.com/Zerohertz/DeepSolo/blob/main/setup.py
+  detection_source: setup.py
+  last_updated_by: ymy-k
+  last_updated_on: 2023-03-06 17:13:57.000000000 Z
+- name: editdistance
+  description: Fast implementation of the edit distance
+  package_url: https://pypi.org/project/editdistance
+  version: 0.6.2
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/pypi/image.png
+  detection_source_url: https://github.com/Zerohertz/DeepSolo/blob/main/requirements.txt
+  detection_source: requirements.txt
+  last_updated_by: ymy-k
+  last_updated_on: 2023-03-07 14:01:11.000000000 Z
+- name: numba
+  description: Compiling Python code using LLVM
+  package_url: https://pypi.org/project/numba
+  version: 0.51.2
+  license: BSD-3-Clause
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/20053/default_9f5ca9b3fcd68c068d4026e56ab738e8e865691f.png
+  detection_source_url: https://github.com/Zerohertz/DeepSolo/blob/main/requirements.txt
+  detection_source: requirements.txt
+  last_updated_by: ymy-k
+  last_updated_on: 2023-03-07 14:01:11.000000000 Z
+- name: opencv-python
+  description: Wrapper package for OpenCV python bindings
+  package_url: https://pypi.org/project/opencv-python
+  version: 4.5.5
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/pypi/image.png
+  detection_source_url: https://github.com/Zerohertz/DeepSolo/blob/main/requirements.txt
+  detection_source: requirements.txt
+  last_updated_by: ymy-k
+  last_updated_on: 2023-03-07 14:01:11.000000000 Z
+- name: tabulate
+  description: Pretty-print tabular data
+  package_url: https://pypi.org/project/tabulate
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/19864/default_7975a21f3bf03129dc3bc4168cf7cb7ee2cc14cc.png
+  detection_source_url: https://github.com/Zerohertz/DeepSolo/blob/main/setup.py
+  detection_source: setup.py
+  last_updated_by: ymy-k
+  last_updated_on: 2023-03-06 17:13:57.000000000 Z
+- name: tensorboard
+  description: TensorBoard lets you watch Tensors Flow
+  package_url: https://pypi.org/project/tensorboard
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/pypi/image.png
+  detection_source_url: https://github.com/Zerohertz/DeepSolo/blob/main/setup.py
+  detection_source: setup.py
+  last_updated_by: ymy-k
+  last_updated_on: 2023-03-06 17:13:57.000000000 Z
+- name: termcolor
+  description: ANSII Color formatting for output in terminal
+  package_url: https://pypi.org/project/termcolor
+  version: '1.1'
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: PyPI Packages
+  image_url: https://img.stackshare.io/package/20014/default_9e735547ab71630330a9e635a78e5cedca9ba560.png
+  detection_source_url: https://github.com/Zerohertz/DeepSolo/blob/main/setup.py
+  detection_source: setup.py
+  last_updated_by: ymy-k
+  last_updated_on: 2023-03-06 17:13:57.000000000 Z
